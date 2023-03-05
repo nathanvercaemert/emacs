@@ -1613,24 +1613,12 @@ I think this forces the "only window" functionality. I've had some issues with t
 
   (add-hook 'after-change-major-mode-hook 'flyspell-on-for-buffer-type)
 #+END_SRC
-* ripgrep
-#+BEGIN_SRC emacs-lisp
+* TODO ripgrep
+;#+BEGIN_SRC emacs-lisp
   (require 'rg)
   (rg-enable-default-bindings)
   (bind-key* "C-M-x C-M-s" 'wgrep-save-all-buffers)
   (bind-key* "<f6> e" 'rg)
-#+END_SRC
-** old deadgrep
-;#+BEGIN_SRC emacs-lisp
-  (use-package deadgrep
-    :demand t
-    ;; :custom
-    ;; (deadgrep--context (5 . 5))
-    :config
-    (defun my-deadgrep-hook ()
-      (setq-local deadgrep--context (5 . 5)))
-    (add-hook 'deadgrep-finished-hook #'my-deadgrep-hook)
-    )
 #+END_SRC
 * undo, redo, and undo-tree
 q 'undo-tree-visualizer-quit
@@ -3079,3 +3067,16 @@ I used this before I realized org-goto can be configured the way I want.
 ;#+BEGIN_SRC emacs-lisp
   (use-package helm-org-rifle)
 #+END_SRC
+** old deadgrep
+;#+BEGIN_SRC emacs-lisp
+  (use-package deadgrep
+    :demand t
+    ;; :custom
+    ;; (deadgrep--context (5 . 5))
+    :config
+    (defun my-deadgrep-hook ()
+      (setq-local deadgrep--context (5 . 5)))
+    (add-hook 'deadgrep-finished-hook #'my-deadgrep-hook)
+    )
+#+END_SRC
+
