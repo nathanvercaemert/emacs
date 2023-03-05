@@ -1339,7 +1339,7 @@ these are from view.el in master
   (setq global-mark-ring (nreverse global-mark-ring)))
 (bind-key* "<f6> f" 'forward-global-mark)
 #+END_SRC
-** block, indentation, whitespace nav
+** TODO block, indentation, whitespace nav
 - have to work on this to get it to install and run correctly
 - because it's not in melpa (block-nav)
 - delete this list if installation goes smoothly
@@ -1395,31 +1395,31 @@ these are from view.el in master
     (c-mode . my-block-nav-c-bindings)
     (c++-mode . my-block-nav-c++-bindings)
     )
-  (use-package spatial-navigate
-    :straight (:package "spatial-navigate" :host nil :type git :repo "https://gitlab.com/ideasman42/emacs-spatial-navigate")
-    :config
-    (defun my-spatial-navigate-prog-bindings ()
-      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar prog-mode-map)
-      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar prog-mode-map)
-      )
-    (defun my-spatial-navigate-python-bindings ()
-      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar python-mode-map)
-      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar python-mode-map)
-      )
-    (defun my-spatial-navigate-c-bindings ()
-      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c-mode-base-map)
-      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c-mode-base-map)
-      )
-    (defun my-spatial-navigate-c++-bindings ()
-      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c++-mode-map)
-      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c++-mode-map)
-      )
-    :hook
-    (prog-mode . my-spatial-navigate-prog-bindings)
-    (python-mode . my-spatial-navigate-python-bindings)
-    (c-mode . my-spatial-navigate-c-bindings)
-    (c++-mode . my-spatial-navigate-c++-bindings)
-    )
+  ;; (use-package spatial-navigate
+  ;;   :straight (:package "spatial-navigate" :host nil :type git :repo "https://gitlab.com/ideasman42/emacs-spatial-navigate")
+  ;;   :config
+  ;;   (defun my-spatial-navigate-prog-bindings ()
+  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar prog-mode-map)
+  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar prog-mode-map)
+  ;;     )
+  ;;   (defun my-spatial-navigate-python-bindings ()
+  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar python-mode-map)
+  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar python-mode-map)
+  ;;     )
+  ;;   (defun my-spatial-navigate-c-bindings ()
+  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c-mode-base-map)
+  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c-mode-base-map)
+  ;;     )
+  ;;   (defun my-spatial-navigate-c++-bindings ()
+  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c++-mode-map)
+  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c++-mode-map)
+  ;;     )
+  ;;   :hook
+  ;;   (prog-mode . my-spatial-navigate-prog-bindings)
+  ;;   (python-mode . my-spatial-navigate-python-bindings)
+  ;;   (c-mode . my-spatial-navigate-c-bindings)
+  ;;   (c++-mode . my-spatial-navigate-c++-bindings)
+  ;;   )
 
 #+END_SRC
 ** visible mark
