@@ -1542,8 +1542,8 @@ I think this forces the "only window" functionality. I've had some issues with t
 (setq auto-revert-interval 1)
 #+END_SRC
 
-* plantuml
-#+BEGIN_SRC emacs-lisp
+* TODO plantuml
+;#+BEGIN_SRC emacs-lisp
   (use-package plantuml-mode
     :mode "\\.plantuml\\'")
   (setq org-plantuml-jar-path (expand-file-name "~/Utilities/plantuml.jar"))
