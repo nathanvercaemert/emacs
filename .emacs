@@ -1,0 +1,35 @@
+(org-babel-load-file "~/.emacs.d/configuration.org")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ignored-local-variable-values
+   '((eval let
+           ((root-dir-unexpanded
+             (locate-dominating-file default-directory ".dir-locals.el")))
+           (when root-dir-unexpanded
+             (let*
+                 ((root-dir
+                   (expand-file-name root-dir-unexpanded))
+                  (root-dir*
+                   (directory-file-name root-dir)))
+               (unless
+                   (boundp 'geiser-guile-load-path)
+                 (defvar geiser-guile-load-path 'nil))
+               (make-local-variable 'geiser-guile-load-path)
+               (require 'cl-lib)
+               (cl-pushnew root-dir* geiser-guile-load-path :test #'string-equal))))
+     (eval setq-local guix-directory
+           (locate-dominating-file default-directory ".dir-locals.el")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(avy-background-face ((t (:background "white" :foreground "#8B0000"))))
+ '(avy-goto-char-timer-face ((t (:background "white" :foreground "black" :weight bold :underline "red" :weight bold))))
+ '(avy-lead-face ((t (:background "white" :foreground "#8B0000"))))
+ '(avy-lead-face-0 ((t (:background "white" :foreground "#8B0000"))))
+ '(avy-lead-face-1 ((t (:background "white" :foreground "#8B0000"))))
+ '(avy-lead-face-2 ((t (:background "white" :foreground "#8B0000")))))

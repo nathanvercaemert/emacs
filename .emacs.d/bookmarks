@@ -1,0 +1,40 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("keymap.c"
+ (filename . "~/Documents/keyboards/qmk_firmware/keyboards/ergodox_ez/keymaps/nathanvercaemert/keymap.c")
+ (front-context-string . "#include QMK_KEY")
+ (rear-context-string)
+ (position . 1))
+("alacritty.yml"
+ (filename . "/mnt/c/Users/nverc/AppData/Roaming/alacritty/alacritty.yml")
+ (front-context-string . "window:\n  paddin")
+ (rear-context-string)
+ (position . 1))
+("boot.ahk"
+ (filename . "~/Documents/etc/ahk/boot.ahk")
+ (front-context-string . "#NoEnv  ; Recomm")
+ (rear-context-string)
+ (position . 1))
+("scratch.org"
+ (filename . "~/Documents/scratch.org")
+ (front-context-string . "* things to take")
+ (rear-context-string)
+ (position . 1))
+("notes.org"
+ (filename . "~/Dropbox/notes.org")
+ (front-context-string . ":PROPERTIES:\n:ID")
+ (rear-context-string)
+ (position . 1))
+(".emacs"
+ (filename . "~/.emacs")
+ (front-context-string . "(org-babel-load-")
+ (rear-context-string)
+ (position . 1))
+("configuration.org"
+ (filename . "~/Dotfiles/.emacs.d/configuration.org")
+ (front-context-string . "* package manage")
+ (rear-context-string)
+ (position . 1))
+)

@@ -1,0 +1,9 @@
+/*
+!/.emacs.d
+!/.gitignore
+!/.emacs
+/.emacs.d/*
+!/.emacs.d/configuration.org
+!/.emacs.d/bookmarks
+!/.emacs.d/.mc-lists.el
+!/.emacs.d/snippets
