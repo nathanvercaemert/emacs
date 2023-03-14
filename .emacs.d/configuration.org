@@ -383,6 +383,10 @@ nice elpa package that overlays hex color values with their actual color
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-mode)
 #+END_SRC
+** only show errors (not warnings) on startup
+#+BEGIN_SRC emacs-lisp
+(setq warning-minimum-level :emergency)
+#+END_SRC
 * text editing
 ** duplicate line or region
 taken from tuxicity
@@ -1613,8 +1617,8 @@ I think this forces the "only window" functionality. I've had some issues with t
 
   (add-hook 'after-change-major-mode-hook 'flyspell-on-for-buffer-type)
 #+END_SRC
-* TODO ripgrep
-;#+BEGIN_SRC emacs-lisp
+* ripgrep
+#+BEGIN_SRC emacs-lisp
   (require 'rg)
   (rg-enable-default-bindings)
   (bind-key* "C-M-x C-M-s" 'wgrep-save-all-buffers)
@@ -2304,11 +2308,6 @@ mostly so that I can enable pixel scrolling, but it also looks nice
 #+END_SRC
 **** font note
 Iosevka is a pleasant font that is popular for coding
-
-*** old only show errors (not warnings) on startup
-;#+BEGIN_SRC emacs-lisp
-(setq warning-minimum-level :emergency)
-#+END_SRC
 
 *** old theme (zenburn)
 ;#+BEGIN_SRC emacs-lisp
