@@ -1621,7 +1621,7 @@ I think this forces the "only window" functionality. I've had some issues with t
 #+BEGIN_SRC emacs-lisp
   (require 'rg)
   (rg-enable-default-bindings)
-  (bind-key* "C-M-x C-M-s" 'wgrep-save-all-buffers)
+  ;; (bind-key* "C-M-x C-M-s" 'wgrep-save-all-buffers)
   (bind-key* "<f6> e" 'rg)
 #+END_SRC
 * undo, redo, and undo-tree
