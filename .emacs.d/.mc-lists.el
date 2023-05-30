@@ -44,6 +44,7 @@
         my-mark-symbol
         my-mark-word
         my-split-window-horizontal
+        org-beginning-of-line
         org-cycle
         org-edit-src-save
         org-end-of-line

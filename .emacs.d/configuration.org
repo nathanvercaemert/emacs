@@ -78,9 +78,10 @@
 #+END_SRC
 *** unbind insert key (avoid overwrite mode)
 this avoids accidentally entering overwrite mode
+commented out for all-vanilla purposes, but left in case I want it again
 #+BEGIN_SRC emacs-lisp
-  (define-key global-map [(insert)] nil)
-  (define-key global-map [(insertchar)] nil)
+  ;; (define-key global-map [(insert)] nil)
+  ;; (define-key global-map [(insertchar)] nil)
 #+END_SRC
 ** interaction log
 #+BEGIN_SRC emacs-lisp
@@ -170,16 +171,6 @@ this takes care of an annoying (and outdated?) prompt
 - it is in tandem with the changes in ahk (^p -> {Up}) and allowing {Up} in my config
 #+BEGIN_SRC emacs-lisp
   (bind-key "<f5> 9" 'org-previous-visible-heading org-mode-map)
-#+END_SRC
-*** org element movement (and normal paragraph movement in org)
-- undo org's remapping of forward-paragraph
-- bind element movement (coincidentally to one of its pre-undo-remapping bindings)
-- this allows for both types of paragraph movement in org mode
-#+BEGIN_SRC emacs-lisp
-  (define-key org-mode-map [remap forward-paragraph] nil)
-  (define-key org-mode-map [remap backward-paragraph] nil)
-  (bind-key "C-<down>" 'org-forward-paragraph)
-  (bind-key "C-<up>" 'org-backward-paragraph)
 #+END_SRC
 ** don't prompt for code evaluation (specified languages)
 #+BEGIN_SRC emacs-lisp
@@ -412,7 +403,7 @@ note that M-NumDuplicate or C-u NumDuplicate is the way to prefix multiple
           (insert region)
           (setq end (point)))
         (goto-char (+ origin (* (length region) arg) arg)))))
-  (bind-key* "C-d" 'duplicate-current-line-or-region)
+  (bind-key* "<f6> 7" 'duplicate-current-line-or-region)
 #+END_SRC
 ** indentation
 *** spaces no tabs
@@ -497,9 +488,9 @@ different than the built-in in that it deletes the newline before the killed lin
     (insert (car kill-ring-yank-pointer))
     )
 
-  (bind-key* "C-k" 'my-kill-all-lines-in-region)
-  (bind-key* "M-k" 'my-paste-line)
-  (bind-key* "C-M-k" 'my-copy-all-lines-in-region)
+  (bind-key* "<f6> 4" 'my-kill-all-lines-in-region)
+  (bind-key* "<f6> 5" 'my-paste-line)
+  (bind-key* "<f6> 6" 'my-copy-all-lines-in-region)
 #+END_SRC
 *** test my-delete-all-lines-in-region
 #+NAME: test-my-kill-or-copy-all-lines-in-region
@@ -967,7 +958,6 @@ this needs to be run before requiring multiple cursors
       (interactive)
       (push-mark)
       (er/mark-method-call))
-    (bind-key* "C-=" 'er/expand-region)
     (bind-key* "<f5> t" 'my-mark-symbol)
     (bind-key* "<f5> u" 'my-mark-word)
     (bind-key* "<f5> y" 'my-mark-inside-quotes)
@@ -1040,16 +1030,15 @@ this needs to be run before requiring multiple cursors
 *** expand snippets custom binding
 #+BEGIN_SRC emacs-lisp
   (bind-key* "<f6> s" 'yas-expand)
-  (bind-key* "ESC ESC <f5>" 'yas-expand)
 #+END_SRC
 *** remove tab binding
 #+BEGIN_SRC emacs-lisp 
   (define-key yas-minor-mode-map [(tab)] nil)
   (define-key yas-minor-mode-map (kbd "TAB") nil)
 #+END_SRC
-** spelling command shorten
+** spelling command shorten 
 #+BEGIN_SRC emacs-lisp
-  (bind-key* "M-4" 'ispell-word)
+  (bind-key* "<f6> 8" 'ispell-word)
 #+END_SRC
 * completion
 ** ivy
@@ -1204,16 +1193,6 @@ a lot of this is dealing with some performance issues associated with ivy rich
 #+BEGIN_SRC emacs-lisp
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 #+END_SRC
-*** horizontal scrolling
-#+BEGIN_SRC emacs-lisp
-(defvar hStep 4)
-(global-set-key (kbd "<mouse-7>") '(lambda ()
-                                     (interactive)
-                                     (scroll-left hStep)))
-(global-set-key (kbd "<mouse-6>") '(lambda ()
-                                     (interactive)
-                                     (scroll-right hStep)))
-#+END_SRC
 *** disable notification about horizonal scrolling
 #+BEGIN_SRC emacs-lisp
 (put 'scroll-left 'disabled nil)
@@ -1252,13 +1231,6 @@ these are from view.el in master
   (bind-key* "<f5> 2" 'backward-paragraph)
   (bind-key* "S-<f5> @" 'my-backward-paragraph-with-shift-select)
 #+END_SRC
-
-*** paragraph C-M-a C-M-e
-;#+BEGIN_SRC emacs-lisp
-(bind-key* "C-M-b" 'backward-paragraph)
-(bind-key* "C-M-f" 'forward-paragraph)
-#+END_SRC
-
 ** TODO avy
 #+BEGIN_SRC emacs-lisp
   (setq search-invisible nil)
@@ -1636,7 +1608,6 @@ I think this forces the "only window" functionality. I've had some issues with t
 #+BEGIN_SRC emacs-lisp
   (require 'rg)
   (rg-enable-default-bindings)
-  ;; (bind-key* "C-M-x C-M-s" 'wgrep-save-all-buffers)
   (bind-key* "<f6> e" 'rg)
 #+END_SRC
 * undo, redo, and undo-tree
