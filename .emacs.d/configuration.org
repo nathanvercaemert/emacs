@@ -267,6 +267,10 @@ this needs to be below [[*navigate to end of subtree][navigate to end of subtree
 #+BEGIN_SRC emacs-lisp
   (bind-key* "<f6> h" 'org-toggle-link-display)
 #+END_SRC
+*** org follow link
+#+BEGIN_SRC emacs-lisp
+  (bind-key* "<f6> t" 'org-open-at-point)
+#+END_SRC
 *** store link
 #+BEGIN_SRC emacs-lisp
   ;; used to save the buffer in emacs, now I do it in qmk
