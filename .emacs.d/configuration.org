@@ -88,7 +88,7 @@ commented out for all-vanilla purposes, but left in case I want it again
   (require 'interaction-log)
   (interaction-log-mode +1)
   (global-set-key
-   (kbd "C-h C-l")
+   (kbd "<f7> d")
    (lambda () (interactive) (display-buffer ilog-buffer-name)))
 #+END_SRC
 ** safe local variables
@@ -241,8 +241,13 @@ this needs to be below [[*navigate to end of subtree][navigate to end of subtree
       (back-to-indentation))
     )
 
-  (bind-key "M-m" 'my-org-back-to-indentation org-mode-map)
+  (bind-key "<f6> 0" 'my-org-back-to-indentation org-mode-map)
 #+END_SRC
+*** org past subtree
+#+BEGIN_SRC emacs-lisp
+  (bind-key "<f7> e" 'org-paste-subtree org-mode-map)
+#+END_SRC
+
 ** make sure regular links still go to chrome
 #+BEGIN_SRC emacs-lisp
 (when (and (eq system-type 'gnu/linux)
@@ -423,15 +428,6 @@ note that M-NumDuplicate or C-u NumDuplicate is the way to prefix multiple
   (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
 #+END_SRC
 ** drag stuff
-defined at startup because it's used in all modes
-*** bindings to be overwritten by other modes
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-<up>")   #'drag-stuff-up)
-  (global-set-key (kbd "M-<down>") #'drag-stuff-down)
-  (global-set-key (kbd "M-<right>") #'drag-stuff-right)
-  (global-set-key (kbd "M-<left>") #'drag-stuff-left)
-#+END_SRC
-*** bindings that won't be overwritten
 #+BEGIN_SRC emacs-lisp
   (bind-key* "<f6> x" 'drag-stuff-up) ; lpl+"n"
   (bind-key* "<f6> y" 'drag-stuff-down) ; lpl+"p"
@@ -896,7 +892,7 @@ name based on functionality being like eclipse
                     (end-of-line)
                     (point))))
       (comment-or-uncomment-region start end)))
-  (bind-key* (kbd "M-;") 'comment-eclipse)
+  (bind-key* (kbd "<f7> a") 'comment-eclipse)
 #+END_SRC
 ** multiple cursors
 *** lists of commands to run once/for all
@@ -974,6 +970,7 @@ this needs to be run before requiring multiple cursors
     )
 #+END_SRC
 ** electric pair mode
+- test 
 #+BEGIN_SRC emacs-lisp
   (electric-pair-mode)
 
@@ -1015,15 +1012,6 @@ this needs to be run before requiring multiple cursors
   (bind-key* "<f5> n" 'my-indent-shift-right)
   (bind-key* "<f5> o" 'my-indent-shift-left)
 #+END_SRC
-** TODO forward/backward kill/delete word
-<<unset C-backspace>>
-- this may need to come before [[replacement of overwrite of isearch-abort][replacement of overwrite of isearch-abort]]
-  - not sure if global-unset-key would erase my binding ^^^
-#+BEGIN_SRC emacs-lisp
-  (global-unset-key (kbd "C-<backspace>"))
-  (global-unset-key (kbd "C-<delete>"))
-  (bind-key* "M-<delete>" 'kill-word)
-#+END_SRC
 ** yasnippet
 *** setup
 #+BEGIN_SRC emacs-lisp
@@ -1043,6 +1031,10 @@ this needs to be run before requiring multiple cursors
 ** spelling command shorten 
 #+BEGIN_SRC emacs-lisp
   (bind-key* "<f6> 8" 'ispell-word)
+#+END_SRC
+** kill word
+#+BEGIN_SRC emacs-lisp
+  (bind-key* "<f7> b" 'kill-word)
 #+END_SRC
 * completion
 ** ivy
@@ -1064,8 +1056,8 @@ this needs to be run before requiring multiple cursors
       )
     (bind-key* "<f6> z" 'my-swiper)
     (bind-key* "<f5> s" 'counsel-imenu)
-    (bind-key* "M-x" 'counsel-M-x)
-    (bind-key* "C-x C-f" 'counsel-find-file)
+    (bind-key* "<f7> c" 'counsel-M-x)
+    (bind-key* "<f6> 9" 'counsel-find-file)
     (ivy-mode))
 #+END_SRC
 *** ivy rich
