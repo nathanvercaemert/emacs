@@ -1432,23 +1432,6 @@ which is the new location originally moved from: https://gitlab.com/iankelling/v
   (require 'visible-mark)
   (global-visible-mark-mode 1)
 #+END_SRC
-** isearch-exit on ESC
-[[replacement of overwrite of isearch-abort][replacement of overwrite of isearch-abort]]
-- this is my <<overwrite of isearch-abort>>
-- I expect isearch to quit on ESC regardless of whether or not there is a match
-  - this is assuming ESC has been changed to C-g with ahk
-#+BEGIN_SRC emacs-lisp
-  (bind-key "C-g" 'isearch-cancel isearch-mode-map)
-#+END_SRC
-** isearch-abort on C-<backspace>
-[[overwrite of isearch-abort][overwrite of isearch-abort]]
-- this is my <<replacement of overwrite of isearch-abort>>
-- in this context, isearch-abort removes the typed string after matching typed string in isearch (going back to the last string that matched anything)
-- this may need to come after [[unset C-backspace][unset C-backspace]]
-  - not sure if global-unset-key would erase my binding ^^^
-#+BEGIN_SRC emacs-lisp
-  (bind-key "C-<backspace>" 'isearch-abort isearch-mode-map)
-#+END_SRC
 ** sentences have one space after period
 #+BEGIN_SRC emacs-lisp
 (setq sentence-end-double-space nil)
@@ -3059,5 +3042,23 @@ I used this before I realized org-goto can be configured the way I want.
       (setq-local deadgrep--context (5 . 5)))
     (add-hook 'deadgrep-finished-hook #'my-deadgrep-hook)
     )
+#+END_SRC
+** my changes to isearch functionality
+*** isearch-exit on ESC
+[[replacement of overwrite of isearch-abort][replacement of overwrite of isearch-abort]]
+- this is my <<overwrite of isearch-abort>>
+- I expect isearch to quit on ESC regardless of whether or not there is a match
+  - this is assuming ESC has been changed to C-g with ahk
+;#+BEGIN_SRC emacs-lisp
+  (bind-key "C-g" 'isearch-cancel isearch-mode-map)
+#+END_SRC
+*** isearch-abort on C-<backspace>
+[[overwrite of isearch-abort][overwrite of isearch-abort]]
+- this is my <<replacement of overwrite of isearch-abort>>
+- in this context, isearch-abort removes the typed string after matching typed string in isearch (going back to the last string that matched anything)
+- this may need to come after [[unset C-backspace][unset C-backspace]]
+  - not sure if global-unset-key would erase my binding ^^^
+;#+BEGIN_SRC emacs-lisp
+  (bind-key "C-<backspace>" 'isearch-abort isearch-mode-map)
 #+END_SRC
 
