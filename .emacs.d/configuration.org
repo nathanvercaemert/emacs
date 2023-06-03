@@ -1204,8 +1204,8 @@ these are from view.el in master
   (autoload 'View-scroll-half-page-backward "view")
   (autoload 'View-scroll-line-forward "view")
   (autoload 'View-scroll-line-backward "view")
-  (global-set-key (kbd "<next>") 'View-scroll-half-page-forward)
-  (global-set-key (kbd "<prior>") 'View-scroll-half-page-backward)
+  (global-set-key (kbd "<f7> f") 'View-scroll-half-page-forward)
+  (global-set-key (kbd "<f7> g") 'View-scroll-half-page-backward)
   (global-set-key (kbd "<f5> w") 'View-scroll-line-forward)
   (global-set-key (kbd "<f5> v") 'View-scroll-line-backward)
 #+END_SRC
