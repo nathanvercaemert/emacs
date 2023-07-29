@@ -49,6 +49,8 @@
         org-edit-src-save
         org-end-of-line
         org-export-dispatch
+        org-metadown
+        org-metaup
         org-return
         org-return-indent
         org-self-insert-command

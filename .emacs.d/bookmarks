@@ -2,9 +2,14 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("keymap.c"
- (filename . "~/Documents/keyboards/qmk_firmware/keyboards/ergodox_ez/keymaps/nathanvercaemert/keymap.c")
- (front-context-string . "#include QMK_KEY")
+(("working.org"
+ (filename . "~/Dropbox/working.org")
+ (front-context-string . "* TODO return nc")
+ (rear-context-string)
+ (position . 1))
+("keymap.c"
+ (filename . "~/Dropbox/repositories/qmk/keyboards/ergodox_ez/keymaps/nathanvercaemert/keymap.c")
+ (front-context-string . "\n#include QMK_KE")
  (rear-context-string)
  (position . 1))
 ("alacritty.yml"

@@ -336,6 +336,10 @@ note that C-u C-c C-j still allows access to classic interface
   - I think it determines whether or not you're in a table
   - https://emacs.stackexchange.com/questions/34992/elisp-how-to-tell-if-my-cursor-is-inside-an-org-table
 - should work by going to the line below (if there is one), going to end, then pressing enter
+* magit
+#+BEGIN_SRC emacs-lisp
+  (straight-use-package '(magit :type git :host github :repo "magit/magit"))
+#+END_SRC
 * appearances
 ** frame initialization
 *** hide the toolbar
@@ -1354,25 +1358,25 @@ these are from view.el in master
       (block-nav-previous-indentation-level))
     (defun my-block-nav-prog-bindings ()
       (bind-key "C-c C-n" 'my-block-nav-next-block prog-mode-map)
-      (bind-key "C-c C-p" 'my-block-nav-previous-block prog-mode-map)
+      (bind-key "<f5> 9" 'my-block-nav-previous-block prog-mode-map)
       (bind-key "<f6> p" 'my-block-nav-next-indentation-level prog-mode-map)
       (bind-key '"C-c C-u" 'my-block-nav-previous-indentation-level prog-mode-map)    
       )
     (defun my-block-nav-python-bindings ()
       (bind-key "C-c C-n" 'my-block-nav-next-block python-mode-map)
-      (bind-key "C-c C-p" 'my-block-nav-previous-block python-mode-map)
+      (bind-key "<f5> 9" 'my-block-nav-previous-block python-mode-map)
       (bind-key "<f6> p" 'my-block-nav-next-indentation-level python-mode-map)
       (bind-key '"C-c C-u" 'my-block-nav-previous-indentation-level python-mode-map)
       )
     (defun my-block-nav-c-bindings ()
       (bind-key "C-c C-n" 'my-block-nav-next-block c-mode-base-map)
-      (bind-key "C-c C-p" 'my-block-nav-previous-block c-mode-base-map)
+      (bind-key "<f5> 9" 'my-block-nav-previous-block c-mode-base-map)
       (bind-key "<f6> p" 'my-block-nav-next-indentation-level c-mode-base-map)
       (bind-key '"C-c C-u" 'my-block-nav-previous-indentation-level c-mode-base-map)
       )
     (defun my-block-nav-c++-bindings ()
       (bind-key "C-c C-n" 'my-block-nav-next-block c++-mode-map)
-      (bind-key "C-c C-p" 'my-block-nav-previous-block c++-mode-map)
+      (bind-key "<f5> 9" 'my-block-nav-previous-block c++-mode-map)
       (bind-key "<f6> p" 'my-block-nav-next-indentation-level c++-mode-map)
       (bind-key '"C-c C-u" 'my-block-nav-previous-indentation-level c++-mode-map)
       )
@@ -1407,7 +1411,6 @@ these are from view.el in master
   ;;   (c-mode . my-spatial-navigate-c-bindings)
   ;;   (c++-mode . my-spatial-navigate-c++-bindings)
   ;;   )
-
 #+END_SRC
 ** visible mark
 my repo coming from:  https://git.sr.ht/~iank/visible-mark
