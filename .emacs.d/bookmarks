@@ -3,7 +3,7 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("working.org"
- (filename . "~/Dropbox/working.org")
+ (filename . "~/Dropbox/notes/notes/working.org")
  (front-context-string . "* TODO return nc")
  (rear-context-string)
  (position . 1))
@@ -23,13 +23,13 @@
  (rear-context-string)
  (position . 1))
 ("scratch.org"
- (filename . "~/Documents/scratch.org")
- (front-context-string . "* things to take")
+ (filename . "~/Dropbox/notes/notes/scratch.org")
+ (front-context-string . "* working to-do ")
  (rear-context-string)
  (position . 1))
 ("notes.org"
- (filename . "~/Dropbox/notes.org")
- (front-context-string . ":PROPERTIES:\n:ID")
+ (filename . "~/Dropbox/notes/notes/notes.org")
+ (front-context-string . "#+TAGS: [ test :")
  (rear-context-string)
  (position . 1))
 (".emacs"

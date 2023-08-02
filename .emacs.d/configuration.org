@@ -336,6 +336,10 @@ note that C-u C-c C-j still allows access to classic interface
   - I think it determines whether or not you're in a table
   - https://emacs.stackexchange.com/questions/34992/elisp-how-to-tell-if-my-cursor-is-inside-an-org-table
 - should work by going to the line below (if there is one), going to end, then pressing enter
+** drill
+#+BEGIN_SRC emacs-lisp
+  (straight-use-package '(org-drill :type git :host gitlab :repo "phillord/org-drill"))
+#+END_SRC
 * magit
 #+BEGIN_SRC emacs-lisp
   (straight-use-package '(magit :type git :host github :repo "magit/magit"))
@@ -442,7 +446,8 @@ different than the built-in in that it deletes the newline before the killed lin
 #+BEGIN_SRC emacs-lisp
   (defun my-kill-or-copy-all-lines-in-region (kill)
     (interactive)
-    (let (vis-ln-md-is-swap tr-wh-is-swap trunc-is-swap end (origin (point)))
+    (let (char-at vis-ln-md-is-swap tr-wh-is-swap trunc-is-swap end (origin (point)))
+      (setq char-at (current-column))
       (if (not truncate-lines)
           (progn
             (if visual-line-mode
@@ -476,7 +481,9 @@ different than the built-in in that it deletes the newline before the killed lin
           (progn
             (toggle-truncate-lines)
             (if vis-ln-md-is-swap
-                (visual-line-mode))))))
+                (visual-line-mode))))
+      (next-line)
+      (move-to-column char-at)))
 
   (defun my-kill-all-lines-in-region ()
     (interactive)
@@ -1386,31 +1393,31 @@ these are from view.el in master
     (c-mode . my-block-nav-c-bindings)
     (c++-mode . my-block-nav-c++-bindings)
     )
-  ;; (use-package spatial-navigate
-  ;;   :straight (:package "spatial-navigate" :host nil :type git :repo "https://gitlab.com/ideasman42/emacs-spatial-navigate")
-  ;;   :config
-  ;;   (defun my-spatial-navigate-prog-bindings ()
-  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar prog-mode-map)
-  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar prog-mode-map)
-  ;;     )
-  ;;   (defun my-spatial-navigate-python-bindings ()
-  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar python-mode-map)
-  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar python-mode-map)
-  ;;     )
-  ;;   (defun my-spatial-navigate-c-bindings ()
-  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c-mode-base-map)
-  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c-mode-base-map)
-  ;;     )
-  ;;   (defun my-spatial-navigate-c++-bindings ()
-  ;;     (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c++-mode-map)
-  ;;     (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c++-mode-map)
-  ;;     )
-  ;;   :hook
-  ;;   (prog-mode . my-spatial-navigate-prog-bindings)
-  ;;   (python-mode . my-spatial-navigate-python-bindings)
-  ;;   (c-mode . my-spatial-navigate-c-bindings)
-  ;;   (c++-mode . my-spatial-navigate-c++-bindings)
-  ;;   )
+  (use-package spatial-navigate
+    :straight (:package "spatial-navigate" :host nil :type git :repo "https://codeberg.org/ideasman42/emacs-spatial-navigate.git")
+    :config
+    (defun my-spatial-navigate-prog-bindings ()
+      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar prog-mode-map)
+      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar prog-mode-map)
+      )
+    (defun my-spatial-navigate-python-bindings ()
+      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar python-mode-map)
+      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar python-mode-map)
+      )
+    (defun my-spatial-navigate-c-bindings ()
+      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c-mode-base-map)
+      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c-mode-base-map)
+      )
+    (defun my-spatial-navigate-c++-bindings ()
+      (bind-key "C-c C-f" 'spatial-navigate-forward-vertical-bar c++-mode-map)
+      (bind-key "C-c C-b" 'spatial-navigate-backward-vertical-bar c++-mode-map)
+      )
+    :hook
+    (prog-mode . my-spatial-navigate-prog-bindings)
+    (python-mode . my-spatial-navigate-python-bindings)
+    (c-mode . my-spatial-navigate-c-bindings)
+    (c++-mode . my-spatial-navigate-c++-bindings)
+    )
 #+END_SRC
 ** visible mark
 my repo coming from:  https://git.sr.ht/~iank/visible-mark
