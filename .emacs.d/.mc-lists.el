@@ -6,6 +6,7 @@
         avy-goto-char-2
         backward-local-mark
         backward-sexp
+        backward-up-list
         c-electric-brace
         c-electric-colon
         c-electric-lt-gt
@@ -40,6 +41,7 @@
         mouse-set-region
         my-block-nav-previous-indentation-level
         my-kill-all-lines-in-region
+        my-mark-comment
         my-mark-outside-pairs
         my-mark-symbol
         my-mark-word

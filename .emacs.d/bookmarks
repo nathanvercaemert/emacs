@@ -18,7 +18,7 @@
  (rear-context-string)
  (position . 1))
 ("boot.ahk"
- (filename . "~/Documents/etc/ahk/boot.ahk")
+ (filename . "~/Dropbox/repositories/ahk/boot.ahk")
  (front-context-string . "#NoEnv  ; Recomm")
  (rear-context-string)
  (position . 1))

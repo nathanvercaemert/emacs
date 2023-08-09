@@ -371,11 +371,11 @@ note that C-u C-c C-j still allows access to classic interface
 #+END_SRC
 ** toggle linum mode
 #+BEGIN_SRC emacs-lisp
-  (bind-key* "<f5> d" 'linum-mode)
+  (bind-key* "<f8> a d" 'linum-mode)
 #+END_SRC
 ** toggle truncate lines
 #+BEGIN_SRC emacs-lisp
-  (bind-key* "<f5> e" 'toggle-truncate-lines)
+  (bind-key* "<f8> a e" 'toggle-truncate-lines)
 #+END_SRC
 ** visual line mode (word wrapping)
 #+BEGIN_SRC emacs-lisp
@@ -1460,8 +1460,8 @@ which is the new location originally moved from: https://gitlab.com/iankelling/v
     (split-window-right)
     (other-window 1)
     (balance-windows))
-    (bind-key* "<f5> a" 'my-split-window-vertical)
-    (bind-key* "<f5> b" 'my-split-window-horizontal)
+    (bind-key* "<f8> a a" 'my-split-window-vertical)
+    (bind-key* "<f8> a b" 'my-split-window-horizontal)
 #+END_SRC
 ** kill window
 #+BEGIN_SRC emacs-lisp
@@ -1469,7 +1469,7 @@ which is the new location originally moved from: https://gitlab.com/iankelling/v
     (interactive)
     (delete-window)
     (balance-windows))
-    (bind-key* "<f5> c" 'my-kill-window)
+    (bind-key* "<f8> a c" 'my-kill-window)
 
 #+END_SRC
 ** kill this buffer
