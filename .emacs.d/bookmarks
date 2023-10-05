@@ -23,10 +23,15 @@
  (rear-context-string)
  (position . 1))
 ("scratch.org"
+<<<<<<< Updated upstream
  (filename . "~/Dropbox/notes/notes/scratch.org")
  (front-context-string . "* working to-do ")
+=======
+ (filename . "~/Desktop/scratch.org")
+ (front-context-string)
+>>>>>>> Stashed changes
  (rear-context-string)
- (position . 1))
+ (position . 5))
 ("notes.org"
  (filename . "~/Dropbox/notes/notes/notes.org")
  (front-context-string . "#+TAGS: [ test :")
@@ -38,7 +43,7 @@
  (rear-context-string)
  (position . 1))
 ("configuration.org"
- (filename . "~/Dotfiles/.emacs.d/configuration.org")
+ (filename . "~/emacs/.emacs.d/configuration.org")
  (front-context-string . "* package manage")
  (rear-context-string)
  (position . 1))
