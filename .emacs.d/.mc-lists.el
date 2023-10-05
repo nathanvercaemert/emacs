@@ -12,11 +12,13 @@
         c-electric-lt-gt
         c-electric-paren
         c-electric-semi&comma
+        c-end-of-defun
         comment-eclipse
         company-indent-or-complete-common
         dap-tooltip-mouse-motion
         default-indent-new-line
         down-list
+        drag-stuff-down
         drag-stuff-up
         duplicate-current-line-or-region
         duplicate-line
@@ -30,6 +32,7 @@
         indent-for-tab-command
         info
         insert-register
+        keyboard-escape-quit
         kill-region
         kill-region
         kmacro-end-or-call-macro
