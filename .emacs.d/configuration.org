@@ -1480,7 +1480,7 @@ which is the new location originally moved from: https://gitlab.com/iankelling/v
     (if (member (buffer-name (current-buffer)) not-to-kill-buffer-list)
         (bury-buffer)
       (kill-buffer (current-buffer))))
-  (bind-key* "<f5> f" 'kill-buffer-but-not-some)
+  (bind-key* "<f8> a f" 'kill-buffer-but-not-some)
 #+END_SRC
 ** windmove
 #+BEGIN_SRC emacs-lisp
